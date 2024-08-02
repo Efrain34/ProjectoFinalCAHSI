@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://g43weqqcnviu"]
+
+[ext_resource type="Texture2D" uid="uid://dhjk4y0hxhk3n" path="res://ProjectoFinalCAHSI-main/tileset_02.png" id="1_31yin"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_l5nby"]
+
+[node name="Mapa" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Tileset02" type="Sprite2D" parent="."]
+material = SubResource("CanvasItemMaterial_l5nby")
+position = Vector2(499.5, 337)
+scale = Vector2(5.19271, 5.21875)
+texture = ExtResource("1_31yin")
