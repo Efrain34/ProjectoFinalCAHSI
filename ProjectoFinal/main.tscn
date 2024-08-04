@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://cmgkqsraf7ops"]
+[gd_scene load_steps=5 format=3 uid="uid://cmgkqsraf7ops"]
 
 [ext_resource type="Texture2D" uid="uid://fbwkchsuf1et" path="res://Mapa/tiles/tileset_02.png" id="1_qc56b"]
+[ext_resource type="PackedScene" uid="uid://dueoq8co1gbsh" path="res://player.tscn" id="2_20lpk"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mubbu"]
 texture = ExtResource("1_qc56b")
@@ -122,3 +123,6 @@ zoom = Vector2(2, 2)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Collision"]
 polygon = PackedVector2Array(-65, 14, 466, 14, 468, 306, -66, 307, -66, 205, 185, 204, 171, 189, 177, 154, 189, 155, 190, 137, 247, 141, 245, 157, 279, 159, 277, 251, 380, 251, 380, 227, 317, 227, 315, 137, 271, 132, 266, 85, 131, 84, 129, 145, -64, 147, -74, 27, -167, -73, -267, 150, -231, 350, -108, 439, 61, 431, 268, 408, 398, 402, 597, 366, 614, 285, 614, 66, 483, -52, 204, -36, 37, -41, -92, -29, -167, 80, -73, 11)
+
+[node name="Player" parent="." instance=ExtResource("2_20lpk")]
+position = Vector2(-367, -174)
