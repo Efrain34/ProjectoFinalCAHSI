@@ -1,0 +1,84 @@
+[gd_scene load_steps=8 format=3 uid="uid://je836pvxfx3e"]
+
+[ext_resource type="Script" path="res://enemy.gd" id="1_htkhm"]
+[ext_resource type="Texture2D" uid="uid://cyl3db3w7bumg" path="res://arts/pngtree-frightened-goblin-cartoon-png-image_6929568.png" id="2_e2t4k"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_grqk0"]
+size = Vector2(19, 18.5)
+
+[sub_resource type="Animation" id="Animation_fkt0u"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Area2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2.08165e-12, 2.08165e-12)]
+}
+
+[sub_resource type="Animation" id="Animation_3mpko"]
+resource_name = "movement "
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Area2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(2.08165e-12, 2.08165e-12), Vector2(2.08165e-12, -50)]
+}
+
+[sub_resource type="Animation" id="Animation_lc04m"]
+resource_name = "movement2"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Area2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(2.08165e-12, 2.08165e-12), Vector2(2.08165e-12, -50)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ocx1e"]
+_data = {
+"RESET": SubResource("Animation_fkt0u"),
+"movement ": SubResource("Animation_3mpko"),
+"movement2": SubResource("Animation_lc04m")
+}
+
+[node name="Enemy" type="Node2D"]
+script = ExtResource("1_htkhm")
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(2.08165e-12, 2.08165e-12)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_grqk0")
+
+[node name="GoblinScout-SilhouetteAllAnimations-death1" type="Sprite2D" parent="Area2D"]
+scale = Vector2(0.024375, 0.018125)
+texture = ExtResource("2_e2t4k")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ocx1e")
+}
+autoplay = "movement2"
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://dueoq8co1gbsh"]
+
+[ext_resource type="Script" path="res://Player.gd" id="1_luhul"]
+[ext_resource type="Texture2D" uid="uid://bets104judoox" path="res://Mapa/tiles/knightspritesheet.png" id="2_7han2"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6mdv4"]
+radius = 8.0
+height = 20.0
+
+[node name="Player" type="CharacterBody2D" groups=["Player"]]
+script = ExtResource("1_luhul")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(351, 233)
+shape = SubResource("CapsuleShape2D_6mdv4")
+
+[node name="Knightspritesheet" type="Sprite2D" parent="." groups=["Player"]]
+position = Vector2(351, 232)
+scale = Vector2(0.0394518, 0.0352778)
+texture = ExtResource("2_7han2")
+hframes = 5
+vframes = 5
+frame = 12
